@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model bitacora_productos {
+  Id_Bitacora            Int      @id @default(autoincrement())
+  Id_Producto            Int
+  Cantidad               Decimal  @db.Decimal(10, 0)
+  Fecha_Reabastecimiento DateTime @db.Date
+  Fecha_Terminacion      Int
+  producto               producto @relation(fields: [Id_Producto], references: [Id_Producto], onDelete: NoAction, onUpdate: NoAction, map: "fk_Reporte_Producto")
+
+  @@index([Id_Producto], map: "fk_Reporte_Producto")
+}
+
+model categoria {
+  Id_Categoria Int        @id @default(autoincrement())
+  Nombre       String     @db.VarChar(20)
+  Descripcion  String     @db.VarChar(100)
+  producto     producto[]
+}
+
+model producto {
+  Id_Producto        Int                  @id @default(autoincrement())
+  Id_Categoria       Int
+  Nombre             String               @db.VarChar(150)
+  Foto               Bytes                @db.Blob
+  Precio             Decimal              @db.Decimal(10, 0)
+  Cantidad           Decimal              @db.Decimal(10, 0)
+  Descripci_n        String               @map("Descripción") @db.VarChar(150)
+  Codigo_barras      String               @db.VarChar(30)
+  Fecha_Creacion     DateTime             @db.Date
+  bitacora_productos bitacora_productos[]
+  categoria          categoria            @relation(fields: [Id_Categoria], references: [Id_Categoria], onDelete: NoAction, map: "fk_producto_categoria")
+  ventas             ventas[]
+
+  @@index([Id_Categoria], map: "fk_producto_categoria")
+}
+
+model ventas {
+  Id_Venta     Int      @id @default(autoincrement())
+  Id_Producto  Int
+  Cantidad     Decimal  @db.Decimal(10, 0)
+  Precio       Decimal  @db.Decimal(10, 0)
+  Total        Decimal  @db.Decimal(10, 0)
+  Fecha        DateTime @db.Date
+  Numero_venta String   @db.VarChar(20)
+  producto     producto @relation(fields: [Id_Producto], references: [Id_Producto], onDelete: NoAction, onUpdate: NoAction, map: "fk_Ventas_Productos")
+
+  @@index([Id_Producto], map: "fk_Ventas_Productos")
+}
