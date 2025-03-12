@@ -8,7 +8,7 @@ app.whenReady().then(() => {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true, // Permite acceso a Node.js
+      nodeIntegration: false, // Permite acceso a Node.js
       contextIsolation: false,
     },
   });

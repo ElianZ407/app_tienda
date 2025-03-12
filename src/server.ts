@@ -2,9 +2,6 @@ import express from "express";
 import productoRoutes from "./routes/productoRoutes";
 
 
-
- // Para TypeScript
-
 const app = express();
 const PORT = 3000;
 
