@@ -1,6 +1,8 @@
 import express from 'express';
 import productoRoutes from './src/routes/productoRoutes';
 
+import dotenv from 'dotenv';
+dotenv.config();
 const app = express();
 const port = 3000;
 
