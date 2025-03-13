@@ -7,7 +7,26 @@ const prisma = new PrismaClient();
 export const getProducts = async (req: Request, res: Response) => {
   try {
     
-    const productos = await prisma.producto.findMany();
+    const productos = await prisma.producto.findMany({
+
+      select: {
+        Nombre: true,
+        categoria: {
+          select: {
+            Nombre: true,
+            Descripcion: true
+          }
+        },
+        Foto: true,
+        Precio: true,
+        Cantidad: true,
+        Descripci_n: true,
+        Codigo_barras: true,
+        
+      }
+
+
+    })
 
     
     res.json(productos);
