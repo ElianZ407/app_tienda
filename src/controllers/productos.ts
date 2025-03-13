@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client';
 import { prisma } from "../prisma/prisma";
 
 
+
 export const getProducts = async (req: Request, res: Response) => {
   try {
     // Obtener todos los productos de la base de datos
