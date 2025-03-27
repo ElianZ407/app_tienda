@@ -29,7 +29,7 @@ model producto {
   Id_Producto        Int                  @id @default(autoincrement())
   Id_Categoria       Int
   Nombre             String               @db.VarChar(150)
-  Foto               Bytes                @db.Blob
+  Foto               String?              @db.Text
   Precio             Decimal              @db.Decimal(10, 0)
   Cantidad           Decimal              @db.Decimal(10, 0)
   Descripci_n        String               @map("Descripción") @db.VarChar(150)
