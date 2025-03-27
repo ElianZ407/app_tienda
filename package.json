@@ -3,16 +3,14 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "electron": "^34.3.0"
-  },
   "dependencies": {
+    "@prisma/client": "^6.5.0",
     "boolean": "^3.2.0",
     "buffer-crc32": "^0.2.13",
     "cacheable-lookup": "^5.0.4",
@@ -24,12 +22,14 @@
     "define-data-property": "^1.1.4",
     "define-properties": "^1.2.1",
     "detect-node": "^2.1.0",
+    "dotenv": "^16.4.7",
     "end-of-stream": "^1.4.4",
     "env-paths": "^2.2.1",
     "es-define-property": "^1.0.1",
     "es-errors": "^1.3.0",
     "es6-error": "^4.1.1",
     "escape-string-regexp": "^4.0.0",
+    "express": "^4.21.2",
     "extract-zip": "^2.0.1",
     "fd-slicer": "^1.1.0",
     "fs-extra": "^8.1.0",
@@ -50,6 +50,7 @@
     "matcher": "^3.0.0",
     "mimic-response": "^1.0.1",
     "ms": "^2.1.3",
+    "node.js": "^0.0.1-security",
     "normalize-url": "^6.1.0",
     "object-keys": "^1.1.1",
     "once": "^1.4.0",
@@ -72,5 +73,13 @@
     "wrappy": "^1.0.2",
     "yauzl": "^2.10.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElianZ407/app_tienda.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ElianZ407/app_tienda/issues"
+  },
+  "homepage": "https://github.com/ElianZ407/app_tienda#readme",
   "description": ""
 }
